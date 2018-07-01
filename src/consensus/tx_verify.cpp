@@ -195,9 +195,10 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
 
     if (tx.IsCoinBase())
     {
-        if (tx.vin[0].scriptSig.size() < 2 || tx.vin[0].scriptSig.size() > 100)
+        if (tx.vin[0].scriptSig.size() < 2 || tx.vin[0].scriptSig.size() > 100) {
             error("tx.vin[0].scriptSig.size():%d",tx.vin[0].scriptSig.size());
             return state.DoS(100, false, REJECT_INVALID, "bad-cb-length");
+        }
     }
     else
     {
