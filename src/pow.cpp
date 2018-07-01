@@ -270,22 +270,48 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     bool fNegative;
     bool fOverflow;
     arith_uint256 bnTarget;
-    error(">>>CheckProofOfWork nBits:%d",nBits);//TODO: delete this
+    // error(">>>CheckProofOfWork nBits:%d",nBits);//TODO: delete this
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
 
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit)) {
-        error("CheckProofOfWork error1 fNegative:%d bnTarget:%d fOverflow:%d powLimit:%d",fNegative,bnTarget.GetCompact(false),fOverflow,UintToArith256(params.powLimit).GetCompact(false));//todo: delete this
+        // error("CheckProofOfWork error1 fNegative:%d bnTarget:%d fOverflow:%d powLimit:%d",fNegative,bnTarget.GetCompact(false),fOverflow,UintToArith256(params.powLimit).GetCompact(false));//todo: delete this
         return false;
     }
 
     // Check proof of work matches claimed amount
     if (UintToArith256(hash) > bnTarget) {
-        error("CheckProofOfWork error2 fNegative:%d bnTarget:%d fOverflow:%d powLimit:%d UintToArith256(hash):%d",fNegative,bnTarget.GetCompact(false),fOverflow,UintToArith256(params.powLimit).GetCompact(false), UintToArith256(hash).GetCompact(false));//todo: delete this
+        // error("CheckProofOfWork error2 fNegative:%d bnTarget:%d fOverflow:%d powLimit:%d UintToArith256(hash):%d",fNegative,bnTarget.GetCompact(false),fOverflow,UintToArith256(params.powLimit).GetCompact(false), UintToArith256(hash).GetCompact(false));//todo: delete this
         return false;
     }
 
-    error("CheckProofOfWork OK.");//TODO: delete this
+    // error("CheckProofOfWork OK.");//TODO: delete this
     return true;
 }
+
+bool CheckProofOfWork2(uint256 hash, unsigned int nBits, int nHeights, const Consensus::Params& params)
+{
+    bool fNegative;
+    bool fOverflow;
+    arith_uint256 bnTarget;
+    // error(">>>CheckProofOfWork2 nBits:%d",nBits);//TODO: delete this
+
+    bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
+
+    // Check range
+    if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit)) {
+        // error("CheckProofOfWork2 error1 fNegative:%d bnTarget:%d fOverflow:%d powLimit:%d",fNegative,bnTarget.GetCompact(false),fOverflow,UintToArith256(params.powLimit).GetCompact(false));//todo: delete this
+        return false;
+    }
+
+    // Check proof of work matches claimed amount
+    if (nHeights > 0 && UintToArith256(hash) > bnTarget) {
+        // error("CheckProofOfWork2 error2 fNegative:%d bnTarget:%d fOverflow:%d powLimit:%d UintToArith256(hash):%d",fNegative,bnTarget.GetCompact(false),fOverflow,UintToArith256(params.powLimit).GetCompact(false), UintToArith256(hash).GetCompact(false));//todo: delete this
+        return false;
+    }
+
+    // error("CheckProofOfWork2 OK.");//TODO: delete this
+    return true;
+}
+
