@@ -76,7 +76,7 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 1051200;
+        consensus.nSubsidyHalvingInterval = 3000000;
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("ff9f1c0116d19de7c9963845e129f9ed1bfc0b376eb54fd7afa42e0d418c8bb6");
         // consensus.BIP65Height = 977759;
@@ -133,15 +133,15 @@ public:
         nPruneAfterHeight = 100000;
         vAlertPubKey = ParseHex("04a24f757c97bd85571858786e6383d1e9b6d323ecad813b63cb52c8da86d56def2e9974dbb5c1c749aa9cf34f3f175aba43e22898f176eceec591f045b1d37a68");
 
-        genesis = CreateGenesisBlock(1530525642, 188085, 0x1e0ffff0, 1, 50 * COIN);
-        // // genesis = CreateGenesisBlock(1528530294, 1234534, 0x207259FF, 1, 50 * COIN);
-        // // // hashGenesisBlock = uint256("0x01")
+        genesis = CreateGenesisBlock(1530713429, 184915, 0x1e0ffff0, 1, 50 * COIN);
+        // genesis = CreateGenesisBlock(1528530294, 1234534, 0x207259FF, 1, 50 * COIN);
+        // // hashGenesisBlock = uint256("0x01")
         // if (true)
         // {
         //     // uint32_t nonce = 11886914;//40823578
         //     uint32_t nonce = 0;//40823578
         //     for(; UintToArith256(genesis.GetPoWHash(true)).GetCompact(false) >= 504365055; nonce++){
-        //         genesis = CreateGenesisBlock(1530525642, nonce, 0x1e0ffff0, 1, 50 * COIN);
+        //         genesis = CreateGenesisBlock(1530713429, nonce, 0x1e0ffff0, 1, 50 * COIN);
         //     }
         //     nonce--;
         //     printf("nonce: %d \n", nonce);
@@ -155,7 +155,7 @@ public:
         printf("new mainnet genesis hash: %s\n", consensus.hashGenesisBlock.ToString().c_str());
         printf("new mainnet hashMerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
 
-        assert(consensus.hashGenesisBlock == uint256S("0x05233e07c9abe9e0669b089ce645d3fafe1a2b9c30df1b1cd33f1b35701f6517"));
+        assert(consensus.hashGenesisBlock == uint256S("0xdf7acc1895094fc2608ccf5b0b9f4f455ccfdccc85870be175e6d319497e381d"));
         assert(genesis.hashMerkleRoot == uint256S("0xef1afb3ed48972d5965623fbeab20ad634cd86dd1e916245b7f66c38da4c96bc"));
         // assert(consensus.hashGenesisBlock == uint256S("0x00000e953f26e40bd36386aeb58efb0e8e6a25b03bd737ddc800bac4b45b211f"));
         // assert(genesis.hashMerkleRoot == uint256S("0x6a20825d183b0bef98e4f6f5545c00da14ebcf7bf494d9140197ce9fb4ff509b"));
@@ -163,7 +163,7 @@ public:
         // Note that of those with the service bits flag, most only support a subset of possible options
         vSeeds.emplace_back("dnsseed.manga-coin.com", false);
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,50);  // M
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,110);  // m
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,55);  // P
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,176);
@@ -180,7 +180,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-                {   0, uint256S("0x05233e07c9abe9e0669b089ce645d3fafe1a2b9c30df1b1cd33f1b35701f6517")},
+                {   0, uint256S("0xdf7acc1895094fc2608ccf5b0b9f4f455ccfdccc85870be175e6d319497e381d")},
                 // {   0, uint256S("0x00000e953f26e40bd36386aeb58efb0e8e6a25b03bd737ddc800bac4b45b211f")},
             }
         };
@@ -272,7 +272,7 @@ public:
         // nodes with support for servicebits filtering should be at the top
         vSeeds.emplace_back("testnet-dnsseed.manga-coin.com", false);
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,127);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,117);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);

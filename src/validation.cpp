@@ -1052,7 +1052,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
         return 0;
 
     CAmount nSubsidy = 2500 * COIN;
-    if (nHeight <= 10000) {
+    if (nHeight <= 1000) {
         //until 1000 block premine
         nSubsidy = 35000000 * COIN;
         error("GetBlockSubsidy:%d",nSubsidy);
@@ -3013,6 +3013,7 @@ static bool ContextualCheckBlock(const CBlock& block, CValidationState& state, c
         CScript expect = CScript() << nHeight;
         if (block.vtx[0]->vin[0].scriptSig.size() < expect.size() ||
             !std::equal(expect.begin(), expect.end(), block.vtx[0]->vin[0].scriptSig.begin())) {
+            LogPrintf("********---ContextualCheckBlock block.vtx[0]->vin[0].scriptSig.size():%d expect.size():%d\n",block.vtx[0]->vin[0].scriptSig.size(),expect.size());
             return state.DoS(100, false, REJECT_INVALID, "bad-cb-height", false, "block height mismatch in coinbase");
         }
     }
