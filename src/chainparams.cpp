@@ -240,9 +240,9 @@ public:
         pchMessageStart[3] = 0xf1;
 
         // Hardfork params
-        nSwitchKGWblock = 10;
-        nSwitchDIGIblock = 20;
-        nSwitchLyra2REv2_DGW = 30;
+        nSwitchKGWblock = -1;
+        nSwitchDIGIblock = -1;
+        nSwitchLyra2REv2_DGW = 1;
 
         nDefaultPort = 19403;
         nPruneAfterHeight = 1000;
