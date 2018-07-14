@@ -755,6 +755,7 @@ bool AppInitServers(boost::thread_group& threadGroup)
 // Parameter interaction based on rules
 void InitParameterInteraction()
 {
+    gArgs.SoftSetBoolArg("-testnet", true);
     // when specifying an explicit binding address, you want to listen on it
     // even when -connect or -proxy is specified
     if (gArgs.IsArgSet("-bind")) {
