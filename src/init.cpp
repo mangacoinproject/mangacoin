@@ -1598,6 +1598,24 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
                     }
                     assert(chainActive.Tip() != nullptr);
                 }
+                
+                //Register Genesis to CoinDB
+                CCoinsViewCache view(pcoinsTip);
+                bool fFlushCoinDB = false;
+                for (const CTransactionRef& tx : chainparams.GenesisBlock().vtx) {
+                    bool fCoinbase = tx->IsCoinBase();
+                    const uint256& txid = tx->GetHash();
+                    for (size_t i = 0; i < tx->vout.size(); ++i) {
+                        Coin haveCoin = view.AccessCoin(COutPoint(txid, i));
+                        if(haveCoin.IsSpent()){
+                            view.AddCoin(COutPoint(txid, i), Coin(tx->vout[i], 1, fCoinbase), false);
+                            fFlushCoinDB = true;
+                        }
+                    }
+                }
+                if(fFlushCoinDB){
+                    view.Flush();
+                }
 
                 if (!fReset) {
                     // Note that RewindBlockIndex MUST run even if we're about to -reindex-chainstate.
