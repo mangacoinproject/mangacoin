@@ -127,11 +127,11 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xfb;
-        pchMessageStart[1] = 0xc0;
-        pchMessageStart[2] = 0xbe;
-        pchMessageStart[3] = 0xef;
-        nDefaultPort = 19401;
+        pchMessageStart[0] = 0xf7;
+        pchMessageStart[1] = 0xc1;
+        pchMessageStart[2] = 0xfa;
+        pchMessageStart[3] = 0xb4;
+        nDefaultPort = 10378;
         nPruneAfterHeight = 100000;
         vAlertPubKey = ParseHex("04a24f757c97bd85571858786e6383d1e9b6d323ecad813b63cb52c8da86d56def2e9974dbb5c1c749aa9cf34f3f175aba43e22898f176eceec591f045b1d37a68");
 
@@ -239,17 +239,17 @@ public:
 
 	consensus.nSubsidyBlankHeight = 30 * 60 / consensus.nPowTargetSpacing; //30 minutes
 
-        pchMessageStart[0] = 0xfd;
-        pchMessageStart[1] = 0xd2;
-        pchMessageStart[2] = 0xc8;
-        pchMessageStart[3] = 0xf1;
+        pchMessageStart[0] = 0xf9;
+        pchMessageStart[1] = 0xc0;
+        pchMessageStart[2] = 0xac;
+        pchMessageStart[3] = 0xb9;
 
         // Hardfork params
         nSwitchKGWblock = -1;
         nSwitchDIGIblock = -1;
         nSwitchLyra2REv2_DGW = 1;
 
-        nDefaultPort = 19403;
+        nDefaultPort = 33378;
         nPruneAfterHeight = 1000;
         vAlertPubKey = ParseHex("04345033f8951d14982223a66750eb2eca85bf53ab8bdce5383a32496046dca83342c8083fea9db647a7993e8f884e1483c2d3c9481c0883acb94ebb63c5b93d83");
 
