@@ -1607,7 +1607,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
                         for (size_t i = 0; i < tx->vout.size(); ++i) {
                             Coin haveCoin = pcoinsTip->AccessCoin(COutPoint(txid, i));
                             if(haveCoin.IsSpent()){
-                                pcoinsTip->AddCoin(COutPoint(txid, i), Coin(tx->vout[i], 0, fCoinbase), false);
+                                pcoinsTip->AddCoin(COutPoint(txid, i), Coin(tx->vout[i], 1, fCoinbase), false);
                                 LogPrintf("Init Add Coin: Tx=%s, N=%ld\n", txid.GetHex().c_str(), i);
                             }
                         }
