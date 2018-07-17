@@ -223,16 +223,16 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1488931200; // March 8, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1520467200; // March 8, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1531837800; // 2018-07-17 23:30:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1531873800; // 2018-07-18 09:30:00
  
         // Deployment of SegWit (BIP141, BIP143, and BIP147)
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1488931200; // March 1, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1520467200; // March 8, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1531837800; // 2018-07-17 23:30:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1531873800; // // 2018-07-18 09:30:00
         // The best chain should have at least this much work.
 //        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000001b57ceb7b646");
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000100");
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000007a577bc240");
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x39c55d04ea8b5117abb84809c862a9d17212bdae22115bef80f6a508f2a24ab6"); //160675
@@ -295,14 +295,15 @@ public:
         checkpointData = (CCheckpointData) {
             {
                 {0, uint256S("0x39c55d04ea8b5117abb84809c862a9d17212bdae22115bef80f6a508f2a24ab6")},
+                {1942, uint256S("0x082beec281f3e7d2eb2dc4400baf526ee4b5713b27226c46fa9c83a61e84b0d9")}
             }
         };
 
         chainTxData = ChainTxData{
             // Data as of block 4bf184706cb65e6571185b2dae8ee95783567ecd18cdc6c1506fc9f281c1bb6a (height 160000)
-            0,
-            0,
-            0.0
+            1531837006,  //block height 1942
+            1969,
+            0.00986216
         };
 
 
