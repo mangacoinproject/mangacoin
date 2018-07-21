@@ -76,9 +76,9 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 3000960;
+        consensus.nSubsidyHalvingInterval = 700979;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("7b51b35c23b43966cd091bfcfe3e5de72fb9f2df1931c4a2c93bbc001ab8085a");
+        consensus.BIP34Hash = uint256S("e0b0b95cc209e17dd4280e3ab830256783d89ef714accce540232da33e2b320a");
         // consensus.BIP65Height = 977759;
         // consensus.BIP66Height = 977759;
         consensus.BIP65Height = -1;
@@ -101,20 +101,21 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1488931200; // March 8, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1520467200; // March 8, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1532185200; // 2018-07-22 00:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1537542000; // 2018-09-22 00:00:00
 
         // Deployment of SegWit (BIP141, BIP143, and BIP147)
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1488931200; // March 8, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1520467200; // March 8, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1532185200; // 2018/07/22 00:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1537542000; // 2018-09-22 00:00:00
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000000000000000001000");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x7b51b35c23b43966cd091bfcfe3e5de72fb9f2df1931c4a2c93bbc001ab8085a"); //1239616
+        consensus.defaultAssumeValid = uint256S("0xe0b0b95cc209e17dd4280e3ab830256783d89ef714accce540232da33e2b320a"); //1239616
 
+        consensus.nSubsidyAmount = 10714 * COIN;
         consensus.nSubsidyBlankHeight = 2 * 24 * 3600 / consensus.nPowTargetSpacing; //2 days
 
         // Hardfork params
@@ -135,7 +136,7 @@ public:
         nPruneAfterHeight = 100000;
         vAlertPubKey = ParseHex("04a24f757c97bd85571858786e6383d1e9b6d323ecad813b63cb52c8da86d56def2e9974dbb5c1c749aa9cf34f3f175aba43e22898f176eceec591f045b1d37a68");
 
-        genesis = CreateGenesisBlock(1531626279, 0xBCC, 0x1F0FFFFF, 1, 3500000250039012480);
+        genesis = CreateGenesisBlock(1532145131, 0xE918, 0x1F0FFFFF, 1, 3500000358212617622);
         // genesis = CreateGenesisBlock(1528530294, 1234534, 0x207259FF, 1, 50 * COIN);
         // // hashGenesisBlock = uint256("0x01")
         // if (true)
@@ -157,8 +158,8 @@ public:
         printf("new mainnet genesis hash: %s\n", consensus.hashGenesisBlock.ToString().c_str());
         printf("new mainnet hashMerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
 
-        assert(consensus.hashGenesisBlock == uint256S("0x7b51b35c23b43966cd091bfcfe3e5de72fb9f2df1931c4a2c93bbc001ab8085a"));
-        assert(genesis.hashMerkleRoot == uint256S("0x30633b6e1578850730d02ae05a371ac272d7a328085c9baee4bf03370a884d34"));
+        assert(consensus.hashGenesisBlock == uint256S("0xe0b0b95cc209e17dd4280e3ab830256783d89ef714accce540232da33e2b320a"));
+        assert(genesis.hashMerkleRoot == uint256S("0x7f7fd8e22ea946489fedb1151fdc397dfc666d474654edc155f07fec6ee64bb2"));
         // assert(consensus.hashGenesisBlock == uint256S("0x00000e953f26e40bd36386aeb58efb0e8e6a25b03bd737ddc800bac4b45b211f"));
         // assert(genesis.hashMerkleRoot == uint256S("0x6a20825d183b0bef98e4f6f5545c00da14ebcf7bf494d9140197ce9fb4ff509b"));
 
@@ -182,8 +183,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-                {   0, uint256S("0x7b51b35c23b43966cd091bfcfe3e5de72fb9f2df1931c4a2c93bbc001ab8085a")},
-                // {   0, uint256S("0x00000e953f26e40bd36386aeb58efb0e8e6a25b03bd737ddc800bac4b45b211f")},
+                {   0, uint256S("0xe0b0b95cc209e17dd4280e3ab830256783d89ef714accce540232da33e2b320a")},
             }
         };
 
@@ -237,6 +237,7 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x39c55d04ea8b5117abb84809c862a9d17212bdae22115bef80f6a508f2a24ab6"); //160675
 
+        consensus.nSubsidyAmount = 2500 * COIN;
 	consensus.nSubsidyBlankHeight = 30 * 60 / consensus.nPowTargetSpacing; //30 minutes
 
         pchMessageStart[0] = 0xf9;
@@ -346,6 +347,7 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00");
 
+        consensus.nSubsidyAmount = 2500 * COIN;
 	consensus.nSubsidyBlankHeight = 30 * 60 / consensus.nPowTargetSpacing; //30 minutes
 
         // Hardfork params

@@ -453,9 +453,6 @@ int64_t ArgsManager::GetArg(const std::string& strArg, int64_t nDefault)
 bool ArgsManager::GetBoolArg(const std::string& strArg, bool fDefault)
 {
     LOCK(cs_args);
-    if (strArg == "-testnet") {
-        return true;
-    }
     if (mapArgs.count(strArg))
         return InterpretBool(mapArgs[strArg]);
     return fDefault;
@@ -916,6 +913,9 @@ std::string CopyrightHolders(const std::string& strPrefix)
         strYear = strPrefix;
         strYear.replace(strYear.find("2013"), sizeof("2013")-1, "2014");
         strCopyrightHolders += "\n" + strYear + "The Vertcoin Developers";
+
+        strYear = strPrefix;
+        strCopyrightHolders += "\n" + strYear + "The Monacoin Core developers";
     }
     return strCopyrightHolders;
 }

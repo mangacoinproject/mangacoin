@@ -263,6 +263,7 @@ The project leader is the release manager for each Mangacoin Core release.
 
 Copyright
 ---------
+Copyright 2018 The Monacoin Core Developers
 Copyright 2018 The Mangacoin Core Developers
 
 - bitcoin: Copyright (c) 2009-2018 Bitcoin Core Developers (MIT License)
