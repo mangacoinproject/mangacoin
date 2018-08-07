@@ -1741,7 +1741,7 @@
     </message>
     <message>
         <source>R&amp;euse an existing receiving address (not recommended)</source>
-        <translation>&amp;再度存在している受信アドレスを死闘する(非推奨)</translation>
+        <translation>&amp;再度存在している受信アドレスを使用する(非推奨)</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Mangacoin network.</source>
@@ -2042,7 +2042,7 @@
     </message>
     <message>
         <source>Copy after fee</source>
-        <translation>後料金をこぴー</translation>
+        <translation>後料金をコピー</translation>
     </message>
     <message>
         <source>Copy bytes</source>
@@ -2310,7 +2310,7 @@
     </message>
     <message>
         <source>Enter the receiver's address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack. Note that this only proves the signing party receives with the address, it cannot prove sendership of any transaction!</source>
-        <translation>以下のメッセージを確認して、受信者のアドレス、メッセージ（タブやすスペースなどを正確にこぴーしてください）、署名を入力してください。中間の攻撃者からのアタックを避けるために、署名されていないメッセージを読まないように注意してください。署名はアドレスと受信を証明することはできますが、送信者の処理を証明できないことに注意してください。</translation>
+        <translation>以下のメッセージを確認して、受信者のアドレス、メッセージ（タブやスペースなどを正確にコピーしてください）、署名を入力してください。中間の攻撃者からのアタックを避けるために、署名されていないメッセージを読まないように注意してください。署名はアドレスと受信を証明することはできますが、送信者の処理を証明できないことに注意してください。</translation>
     </message>
     <message>
         <source>The Mangacoin address the message was signed with</source>
