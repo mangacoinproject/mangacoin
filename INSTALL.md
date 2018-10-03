@@ -1,5 +1,5 @@
-Building Monacoin
+Building Mangacoin
 ================
 
 See doc/build-*.md for instructions on building the various
-elements of the Monacoin Core reference implementation of Monacoin.
+elements of the Mangacoin Core reference implementation of Mangacoin.

@@ -58,12 +58,12 @@
         <translation>Direcciones de recepción</translation>
     </message>
     <message>
-        <source>These are your Monacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Estas son tus direcciones Monacoin para realizar pagos. Verifica siempre el monto y la dirección de recepción antes de enviar monedas. </translation>
+        <source>These are your Mangacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Estas son tus direcciones Mangacoin para realizar pagos. Verifica siempre el monto y la dirección de recepción antes de enviar monedas. </translation>
     </message>
     <message>
-        <source>These are your Monacoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Estas son tus direcciones Monacoin para recibir pagos. Es recomendable usar una nueva dirección de recibo para cada transacción.</translation>
+        <source>These are your Mangacoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Estas son tus direcciones Mangacoin para recibir pagos. Es recomendable usar una nueva dirección de recibo para cada transacción.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -154,8 +154,8 @@
         <translation>Reindexando bloques en el disco...</translation>
     </message>
     <message>
-        <source>Send coins to a Monacoin address</source>
-        <translation>Enviar monedas a una dirección Monacoin</translation>
+        <source>Send coins to a Mangacoin address</source>
+        <translation>Enviar monedas a una dirección Mangacoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -170,8 +170,8 @@
         <translation>Abre la consola de depuración y diágnostico</translation>
     </message>
     <message>
-        <source>Monacoin</source>
-        <translation>Monacoin</translation>
+        <source>Mangacoin</source>
+        <translation>Mangacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -198,12 +198,12 @@
         <translation>Encriptar las llaves privadas que pertenecen a tu billetera</translation>
     </message>
     <message>
-        <source>Sign messages with your Monacoin addresses to prove you own them</source>
-        <translation>Firma mensajes con tus direcciones Monacoin para probar que eres dueño de ellas</translation>
+        <source>Sign messages with your Mangacoin addresses to prove you own them</source>
+        <translation>Firma mensajes con tus direcciones Mangacoin para probar que eres dueño de ellas</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Monacoin addresses</source>
-        <translation>Verificar mensajes para asegurar que estaban firmados con direcciones Monacoin especificas</translation>
+        <source>Verify messages to ensure they were signed with specified Mangacoin addresses</source>
+        <translation>Verificar mensajes para asegurar que estaban firmados con direcciones Mangacoin especificas</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -449,8 +449,8 @@
         <translation>Usa un directorio de datos personalizado:</translation>
     </message>
     <message>
-        <source>Monacoin</source>
-        <translation>Monacoin</translation>
+        <source>Mangacoin</source>
+        <translation>Mangacoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -720,8 +720,8 @@
         <translation>Correr en segundo plano como daemon y aceptar comandos</translation>
     </message>
     <message>
-        <source>Monacoin Core</source>
-        <translation>Monacoin Core</translation>
+        <source>Mangacoin Core</source>
+        <translation>Mangacoin Core</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

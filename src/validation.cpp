@@ -51,7 +51,7 @@
 #include <boost/thread.hpp>
 
 #if defined(NDEBUG)
-# error "Monacoin cannot be compiled without assertions."
+# error "Mangacoin cannot be compiled without assertions."
 #endif
 
 #define MICRO 0.000001
@@ -242,7 +242,7 @@ CTxMemPool mempool(&feeEstimator);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const std::string strMessageMagic = "Monacoin Signed Message:\n";
+const std::string strMessageMagic = "Mangacoin Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -954,7 +954,7 @@ static bool AcceptToMemoryPoolWorker(const CChainParams& chainparams, CTxMemPool
         // Remove conflicting transactions from the mempool
         for (const CTxMemPool::txiter it : allConflicting)
         {
-            LogPrint(BCLog::MEMPOOL, "replacing tx %s with %s for %s MONA additional fees, %d delta bytes\n",
+            LogPrint(BCLog::MEMPOOL, "replacing tx %s with %s for %s MANGA additional fees, %d delta bytes\n",
                     it->GetTx().GetHash().ToString(),
                     hash.ToString(),
                     FormatMoney(nModifiedFees - nConflictingFees),
@@ -1124,7 +1124,8 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, int nHeight, con
     }
 
     // Check the header
-    if (!CheckProofOfWork(block.GetPoWHash(nHeight >= Params().SwitchLyra2REv2_DGWblock()), block.nBits, consensusParams))
+    //if (!CheckProofOfWork(block.GetPoWHash(nHeight >= Params().SwitchLyra2REv2_DGWblock()), block.nBits, consensusParams))
+    if (!CheckProofOfWork2(block.GetPoWHash(nHeight >= Params().SwitchLyra2REv2_DGWblock()), block.nBits, nHeight, consensusParams))
         return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
 
     return true;
@@ -1153,9 +1154,14 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     if (halvings >= 64)
         return 0;
 
-    CAmount nSubsidy = 50 * COIN;
+    if(nHeight <= consensusParams.nSubsidyBlankHeight){
+        return 0;
+    }
+
+    CAmount nSubsidy = consensusParams.nSubsidyAmount;
     // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
     nSubsidy >>= halvings;
+    // error("GetBlockSubsidy:%d",nSubsidy);
     return nSubsidy;
 }
 
@@ -1670,7 +1676,7 @@ static bool WriteTxIndexDataForBlock(const CBlock& block, CValidationState& stat
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("monacoin-scriptch");
+    RenameThread("mangacoin-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2980,7 +2986,7 @@ static bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state,
     }
 
     // Check proof of work matches claimed amount
-    if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(nHeight >= Params().SwitchLyra2REv2_DGWblock()), block.nBits, consensusParams))
+    if (fCheckPOW && !CheckProofOfWork2(block.GetPoWHash(nHeight >= Params().SwitchLyra2REv2_DGWblock()), block.nBits, nHeight, consensusParams))
         return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
 
     return true;

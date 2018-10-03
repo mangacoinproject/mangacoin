@@ -141,6 +141,9 @@ bool CScriptCompressor::Decompress(unsigned int nSize, const std::vector<unsigne
 
 uint64_t CTxOutCompressor::CompressAmount(uint64_t n)
 {
+    uint64_t n_bak = n;
+    uint64_t retv;
+
     if (n == 0)
         return 0;
     int e = 0;
@@ -152,10 +155,21 @@ uint64_t CTxOutCompressor::CompressAmount(uint64_t n)
         int d = (n % 10);
         assert(d >= 1 && d <= 9);
         n /= 10;
-        return 1 + (n*9 + d - 1)*10 + e;
+	uint64_t vtmp = (n*9 + d - 1);
+	if(vtmp < 0x1999999999999999ULL){ //uint64_max / 10
+            retv = 1 + vtmp*10 + e;
+	}else{
+	    retv = 0x8000000000000000ULL;
+	}
     } else {
-        return 1 + (n - 1)*10 + 9;
+        retv = 1 + (n - 1)*10 + 9;
     }
+
+    if(retv & 0x8000000000000000ULL){
+        retv = (n_bak | 0x8000000000000000ULL);
+    }
+
+    return retv;
 }
 
 uint64_t CTxOutCompressor::DecompressAmount(uint64_t x)
@@ -163,6 +177,8 @@ uint64_t CTxOutCompressor::DecompressAmount(uint64_t x)
     // x = 0  OR  x = 1+10*(9*n + d - 1) + e  OR  x = 1+10*(n - 1) + 9
     if (x == 0)
         return 0;
+    if (x & 0x8000000000000000ULL)
+	return (x & 0x7FFFFFFFFFFFFFFFULL);
     x--;
     // x = 10*(9*n + d - 1) + e
     int e = x % 10;

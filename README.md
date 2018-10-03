@@ -1,42 +1,42 @@
-Monacoin Core integration/staging tree
+Mangacoin Core integration/staging tree
 =====================================
 
-[![Build Status](https://travis-ci.org/monacoinproject/monacoin.svg?branch=master)](https://travis-ci.org/monacoinproject/monacoin)
+[![Build Status](https://travis-ci.org/mangacoinproject/mangacoin.svg?branch=master)](https://travis-ci.org/mangacoinproject/mangacoin)
 
-https://monacoin.org
+https://manga-coin.com
 
-What is Monacoin?
+What is Mangacoin?
 ----------------
 
-Monacoin is an experimental digital currency that enables instant payments to
-anyone, anywhere in the world. Monacoin uses peer-to-peer technology to operate
+Mangacoin is an experimental digital currency that enables instant payments to
+anyone, anywhere in the world. Mangacoin uses peer-to-peer technology to operate
 with no central authority: managing transactions and issuing money are carried
-out collectively by the network. Monacoin Core is the name of open source
+out collectively by the network. Mangacoin Core is the name of open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Monacoin Core software, see [https://monacoin.org](https://monacoin.org).
+the Mangacoin Core software, see [https://manga-coin.com](https://manga-coin.com).
 
 License
 -------
 
-Monacoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Mangacoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/monacoinproject/monacoin/tags) are created
-regularly to indicate new official, stable release versions of Monacoin Core.
+completely stable. [Tags](https://github.com/mangacoinproject/mangacoin/tags) are created
+regularly to indicate new official, stable release versions of Mangacoin Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-The developer [mailing list](https://groups.google.com/forum/#!forum/monacoin-dev)
+The developer [mailing list](https://groups.google.com/forum/#!forum/mangacoin-dev)
 should be used to discuss complicated or controversial changes before working
 on a patch set.
 
-Developer IRC can be found on Freenode at #monacoin-dev.
+Developer IRC can be found on Freenode at #mangacoin-dev.
 
 Testing
 -------
@@ -70,7 +70,7 @@ Translations
 ------------
 
 We only accept translation fixes that are submitted through [Bitcoin Core's Transifex page](https://www.transifex.com/projects/p/bitcoin/).
-Translations are converted to Monacoin periodically.
+Translations are converted to Mangacoin periodically.
 
 Translations are periodically pulled from Transifex and merged into the git repository. See the
 [translation process](doc/translation_process.md) for details on how this works.

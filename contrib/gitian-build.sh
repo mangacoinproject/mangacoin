@@ -16,7 +16,7 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/monacoinproject/monacoin
+url=https://github.com/mangacoinproject/mangacoin
 proc=2
 mem=2000
 lxc=true
@@ -30,7 +30,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the monacoin, gitian-builder, gitian.sigs.mona, and monacoin-detached-sigs.
+Run this script from the directory containing the mangacoin, gitian-builder, gitian.sigs.mona, and mangacoin-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -38,7 +38,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/monacoinproject/monacoin
+-u|--url	Specify the URL of the repository. Default is https://github.com/mangacoinproject/mangacoin
 -v|--verify 	Verify the gitian build
 -b|--build	Do a gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -229,8 +229,8 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/monacoinproject/gitian.sigs.mona.git
-    git clone https://github.com/monacoinproject/monacoin-detached-sigs.git
+    git clone https://github.com/mangacoinproject/gitian.sigs.mona.git
+    git clone https://github.com/mangacoinproject/mangacoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
@@ -244,7 +244,7 @@ then
 fi
 
 # Set up build
-pushd ./monacoin
+pushd ./mangacoin
 git fetch
 git checkout ${COMMIT}
 popd
@@ -253,7 +253,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./monacoin-binaries/${VERSION}
+	mkdir -p ./mangacoin-binaries/${VERSION}
 	
 	# Build Dependencies
 	echo ""
@@ -263,7 +263,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../monacoin/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../mangacoin/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -271,9 +271,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit monacoin=${COMMIT} --url monacoin=${url} ../monacoin/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.mona/ ../monacoin/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/monacoin-*.tar.gz build/out/src/monacoin-*.tar.gz ../monacoin-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit mangacoin=${COMMIT} --url mangacoin=${url} ../mangacoin/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.mona/ ../mangacoin/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/mangacoin-*.tar.gz build/out/src/mangacoin-*.tar.gz ../mangacoin-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -281,10 +281,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit monacoin=${COMMIT} --url monacoin=${url} ../monacoin/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.mona/ ../monacoin/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/monacoin-*-win-unsigned.tar.gz inputs/monacoin-win-unsigned.tar.gz
-	    mv build/out/monacoin-*.zip build/out/monacoin-*.exe ../monacoin-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit mangacoin=${COMMIT} --url mangacoin=${url} ../mangacoin/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.mona/ ../mangacoin/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/mangacoin-*-win-unsigned.tar.gz inputs/mangacoin-win-unsigned.tar.gz
+	    mv build/out/mangacoin-*.zip build/out/mangacoin-*.exe ../mangacoin-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -292,10 +292,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit monacoin=${COMMIT} --url monacoin=${url} ../monacoin/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.mona/ ../monacoin/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/monacoin-*-osx-unsigned.tar.gz inputs/monacoin-osx-unsigned.tar.gz
-	    mv build/out/monacoin-*.tar.gz build/out/monacoin-*.dmg ../monacoin-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit mangacoin=${COMMIT} --url mangacoin=${url} ../mangacoin/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.mona/ ../mangacoin/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/mangacoin-*-osx-unsigned.tar.gz inputs/mangacoin-osx-unsigned.tar.gz
+	    mv build/out/mangacoin-*.tar.gz build/out/mangacoin-*.dmg ../mangacoin-binaries/${VERSION}
 	fi
 	popd
 
@@ -322,27 +322,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.mona/ -r ${VERSION}-linux ../monacoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs.mona/ -r ${VERSION}-linux ../mangacoin/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.mona/ -r ${VERSION}-win-unsigned ../monacoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs.mona/ -r ${VERSION}-win-unsigned ../mangacoin/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX	
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""	
-	./bin/gverify -v -d ../gitian.sigs.mona/ -r ${VERSION}-osx-unsigned ../monacoin/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs.mona/ -r ${VERSION}-osx-unsigned ../mangacoin/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.mona/ -r ${VERSION}-osx-signed ../monacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs.mona/ -r ${VERSION}-osx-signed ../mangacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.mona/ -r ${VERSION}-osx-signed ../monacoin/contrib/gitian-descriptors/gitian-osx-signer.yml	
+	./bin/gverify -v -d ../gitian.sigs.mona/ -r ${VERSION}-osx-signed ../mangacoin/contrib/gitian-descriptors/gitian-osx-signer.yml	
 	popd
 fi
 
@@ -357,10 +357,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../monacoin/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.mona/ ../monacoin/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/monacoin-*win64-setup.exe ../monacoin-binaries/${VERSION}
-	    mv build/out/monacoin-*win32-setup.exe ../monacoin-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../mangacoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.mona/ ../mangacoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/mangacoin-*win64-setup.exe ../mangacoin-binaries/${VERSION}
+	    mv build/out/mangacoin-*win32-setup.exe ../mangacoin-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -368,9 +368,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../monacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.mona/ ../monacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/monacoin-osx-signed.dmg ../monacoin-binaries/${VERSION}/monacoin-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../mangacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.mona/ ../mangacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/mangacoin-osx-signed.dmg ../mangacoin-binaries/${VERSION}/mangacoin-${VERSION}-osx.dmg
 	fi
 	popd
 

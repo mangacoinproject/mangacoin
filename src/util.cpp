@@ -82,8 +82,8 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char * const BITCOIN_CONF_FILENAME = "monacoin.conf";
-const char * const BITCOIN_PID_FILENAME = "monacoind.pid";
+const char * const BITCOIN_CONF_FILENAME = "mangacoin.conf";
+const char * const BITCOIN_PID_FILENAME = "mangacoind.pid";
 const char * const DEFAULT_DEBUGLOGFILE = "debug.log";
 
 ArgsManager gArgs;
@@ -559,7 +559,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(nullptr, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "monacoin";
+    const char* pszModule = "mangacoin";
 #endif
     if (pex)
         return strprintf(
@@ -584,7 +584,7 @@ fs::path GetDefaultDataDir()
     // Unix: ~/.bitcoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Monacoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Mangacoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -594,10 +594,10 @@ fs::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/Monacoin";
+    return pathRet / "Library/Application Support/Mangacoin";
 #else
     // Unix
-    return pathRet / ".monacoin";
+    return pathRet / ".mangacoin";
 #endif
 #endif
 }
@@ -946,7 +946,9 @@ int GetNumCores()
 
 std::string CopyrightHolders(const std::string& strPrefix)
 {
-    std::string strCopyrightHolders = strPrefix + strprintf(_(COPYRIGHT_HOLDERS), _(COPYRIGHT_HOLDERS_SUBSTITUTION));
+    std::string prefix_tmp = strPrefix;
+    prefix_tmp.replace(prefix_tmp.find("2013"), sizeof("2013")-1, "2018");
+    std::string strCopyrightHolders = prefix_tmp + strprintf(_(COPYRIGHT_HOLDERS), _(COPYRIGHT_HOLDERS_SUBSTITUTION));
 
     // Check for untranslated substitution to make sure Bitcoin Core copyright is not removed by accident
     if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Bitcoin Core") == std::string::npos) {
@@ -973,6 +975,9 @@ std::string CopyrightHolders(const std::string& strPrefix)
         strYear = strPrefix;
         strYear.replace(strYear.find("2013"), sizeof("2013")-1, "2014");
         strCopyrightHolders += "\n" + strYear + "The Vertcoin Developers";
+
+        strYear = strPrefix;
+        strCopyrightHolders += "\n" + strYear + "The Monacoin Core developers";
     }
     return strCopyrightHolders;
 }

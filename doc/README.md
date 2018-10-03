@@ -1,41 +1,41 @@
-Monacoin Core
+Mangacoin Core
 =============
 
 Setup
 ---------------------
-Monacoin Core is the original Monacoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Monacoin transactions (which is currently more than 7 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+Mangacoin Core is the original Mangacoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Mangacoin transactions (which is currently more than 7 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
 
-To download Monacoin Core, visit [monacoin.org](https://monacoin.org).
+To download Mangacoin Core, visit [manga-coin.com](https://manga-coin.com).
 
 Running
 ---------------------
-The following are some helpful notes on how to run Monacoin on your native platform.
+The following are some helpful notes on how to run Mangacoin on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/monacoin-qt` (GUI) or
-- `bin/monacoind` (headless)
+- `bin/mangacoin-qt` (GUI) or
+- `bin/mangacoind` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run monacoin-qt.exe.
+Unpack the files into a directory, and then run mangacoin-qt.exe.
 
 ### OS X
 
-Drag Monacoin-Core to your applications folder, and then run Monacoin-Core.
+Drag Mangacoin-Core to your applications folder, and then run Mangacoin-Core.
 
 ### Need Help?
 
-* See the documentation at the [Monacoin Wiki](https://monacoin.info/)
+* See the documentation at the [Mangacoin Wiki](https://mangacoin.info/)
 for help and more information.
-* Ask for help on [#monacoin](http://webchat.freenode.net?channels=monacoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=monacoin).
-* Ask for help on the [MonacoinTalk](https://monacointalk.io/) forums.
+* Ask for help on [#mangacoin](http://webchat.freenode.net?channels=mangacoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=mangacoin).
+* Ask for help on the [MangacoinTalk](https://mangacointalk.io/) forums.
 
 Building
 ---------------------
-The following are developer notes on how to build Monacoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Mangacoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [Dependencies](dependencies.md)
 - [OS X Build Notes](build-osx.md)
@@ -46,7 +46,7 @@ The following are developer notes on how to build Monacoin on your native platfo
 
 Development
 ---------------------
-The Monacoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Mangacoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Release Notes](release-notes.md)
@@ -61,8 +61,8 @@ The Monacoin repo's [root README](/README.md) contains relevant information on t
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on the [MonacoinTalk](https://monacointalk.io/) forums.
-* Discuss general Monacoin development on #monacoin-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=monacoin-dev).
+* Discuss on the [MangacoinTalk](https://mangacointalk.io/) forums.
+* Discuss general Mangacoin development on #mangacoin-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=mangacoin-dev).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

@@ -65,11 +65,11 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += monacoind
+  bin_PROGRAMS += mangacoind
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += monacoin-cli monacoin-tx
+  bin_PROGRAMS += mangacoin-cli mangacoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -408,16 +408,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-monacoind_SOURCES = bitcoind.cpp
-monacoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-monacoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-monacoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+mangacoind_SOURCES = bitcoind.cpp
+mangacoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+mangacoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+mangacoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-monacoind_SOURCES += bitcoind-res.rc
+mangacoind_SOURCES += bitcoind-res.rc
 endif
 
-monacoind_LDADD = \
+mangacoind_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -431,38 +431,38 @@ monacoind_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-monacoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+mangacoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # bitcoin-cli binary #
-monacoin_cli_SOURCES = bitcoin-cli.cpp
-monacoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-monacoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-monacoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+mangacoin_cli_SOURCES = bitcoin-cli.cpp
+mangacoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+mangacoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+mangacoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-monacoin_cli_SOURCES += bitcoin-cli-res.rc
+mangacoin_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
-monacoin_cli_LDADD = \
+mangacoin_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-monacoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+mangacoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # bitcoin-tx binary #
-monacoin_tx_SOURCES = bitcoin-tx.cpp
-monacoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-monacoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-monacoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+mangacoin_tx_SOURCES = bitcoin-tx.cpp
+mangacoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+mangacoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+mangacoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-monacoin_tx_SOURCES += bitcoin-tx-res.rc
+mangacoin_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
-monacoin_tx_LDADD = \
+mangacoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -470,7 +470,7 @@ monacoin_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-monacoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+mangacoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #

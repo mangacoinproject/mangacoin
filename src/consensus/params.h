@@ -6,6 +6,7 @@
 #ifndef BITCOIN_CONSENSUS_PARAMS_H
 #define BITCOIN_CONSENSUS_PARAMS_H
 
+#include "amount.h"
 #include <uint256.h>
 #include <limits>
 #include <map>
@@ -77,6 +78,9 @@ struct Params {
     int64_t DifficultyAdjustmentIntervalDigisheld() const { return nPowTargetTimespanDigisheld / nPowTargetSpacing; }
     uint256 nMinimumChainWork;
     uint256 defaultAssumeValid;
+    
+    CAmount nSubsidyAmount;
+    int nSubsidyBlankHeight;
 };
 } // namespace Consensus
 

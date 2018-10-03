@@ -62,12 +62,12 @@
         <translation>Получаване на адреси</translation>
     </message>
     <message>
-        <source>These are your Monacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Mangacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Това са адресите на получателите на плащания. Винаги проверявайте размера на сумата и адреса на получателя, преди да изпратите монети.</translation>
     </message>
     <message>
-        <source>These are your Monacoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Това са Вашите Monacoin адреси,благодарение на които ще получавате плащания.Препоръчително е да използвате нови адреси за получаване на всяка транзакция.</translation>
+        <source>These are your Mangacoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Това са Вашите Mangacoin адреси,благодарение на които ще получавате плащания.Препоръчително е да използвате нови адреси за получаване на всяка транзакция.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -168,7 +168,7 @@
         <translation>Потвърдете на шифрирането на портфейла</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR MONACOINS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR MANGACOINS&lt;/b&gt;!</source>
         <translation>ВНИМАНИЕ: Ако шифрирате вашият портфейл и изгубите паролата си, &lt;b&gt;ЩЕ ИЗГУБИТЕ ВСИЧКИТЕ СИ БИТКОИНИ&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -330,7 +330,7 @@
         <translation>Повторно индексиране на блоковете на диска...</translation>
     </message>
     <message>
-        <source>Send coins to a Monacoin address</source>
+        <source>Send coins to a Mangacoin address</source>
         <translation>Изпращане към Биткоин адрес</translation>
     </message>
     <message>
@@ -354,7 +354,7 @@
         <translation>&amp;Проверка на съобщение...</translation>
     </message>
     <message>
-        <source>Monacoin</source>
+        <source>Mangacoin</source>
         <translation>Биткоин</translation>
     </message>
     <message>
@@ -382,12 +382,12 @@
         <translation>Шифроване на личните ключове,които принадлежат на портфейла Ви.</translation>
     </message>
     <message>
-        <source>Sign messages with your Monacoin addresses to prove you own them</source>
-        <translation>Пишете съобщения със своя Monacoin адрес за да докажете,че е ваш.</translation>
+        <source>Sign messages with your Mangacoin addresses to prove you own them</source>
+        <translation>Пишете съобщения със своя Mangacoin адрес за да докажете,че е ваш.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Monacoin addresses</source>
-        <translation>Потвърждаване на съобщения  за да се знае,че са написани с дадените Monacoin адреси.</translation>
+        <source>Verify messages to ensure they were signed with specified Mangacoin addresses</source>
+        <translation>Потвърждаване на съобщения  за да се знае,че са написани с дадените Mangacoin адреси.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -406,8 +406,8 @@
         <translation>Раздели</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and monacoin: URIs)</source>
-        <translation>Изискване на плащания(генерира QR кодове и Monacoin: URIs)</translation>
+        <source>Request payments (generates QR codes and mangacoin: URIs)</source>
+        <translation>Изискване на плащания(генерира QR кодове и Mangacoin: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -418,8 +418,8 @@
         <translation>Покажи списък с използваните адреси и имена.</translation>
     </message>
     <message>
-        <source>Open a monacoin: URI or payment request</source>
-        <translation>Отворете Monacoin: URI  или заявка за плащане</translation>
+        <source>Open a mangacoin: URI or payment request</source>
+        <translation>Отворете Mangacoin: URI  или заявка за плащане</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -462,8 +462,8 @@
         <translation>Синхронизиран</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Monacoin command-line options</source>
-        <translation>Покажи %1 помощно съобщение за да получиш лист с възможни Monacoin команди</translation>
+        <source>Show the %1 help message to get a list with possible Mangacoin command-line options</source>
+        <translation>Покажи %1 помощно съобщение за да получиш лист с възможни Mangacoin команди</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -524,8 +524,8 @@
         <translation>Портфейлът е &lt;b&gt;криптиран&lt;/b&gt; и &lt;b&gt;заключен&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Monacoin can no longer continue safely and will quit.</source>
-        <translation>Възникна фатална грешка. Monacoin не може да продължи безопасно и ще се изключи.</translation>
+        <source>A fatal error occurred. Mangacoin can no longer continue safely and will quit.</source>
+        <translation>Възникна фатална грешка. Mangacoin не може да продължи безопасно и ще се изключи.</translation>
     </message>
 </context>
 <context>
@@ -710,7 +710,7 @@
         <translation>Редактиране на адрес за изпращане</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Monacoin address.</source>
+        <source>The entered address "%1" is not a valid Mangacoin address.</source>
         <translation>"%1" не е валиден Биткоин адрес.</translation>
     </message>
     <message>
@@ -827,7 +827,7 @@
         <translation>Използване на директория ръчно</translation>
     </message>
     <message>
-        <source>Monacoin</source>
+        <source>Mangacoin</source>
         <translation>Биткоин</translation>
     </message>
     <message>
@@ -932,16 +932,16 @@
         <translation>&amp;Похарчете непотвърденото ресто</translation>
     </message>
     <message>
-        <source>Automatically open the Monacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Автоматично отваряне на входящия Monacoin порт. Работи само с рутери поддържащи UPnP.</translation>
+        <source>Automatically open the Mangacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Автоматично отваряне на входящия Mangacoin порт. Работи само с рутери поддържащи UPnP.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Отваряне на входящия порт чрез &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Monacoin network through a SOCKS5 proxy.</source>
-        <translation>Свързване с Monacoin мрежата чрез SOCKS5  прокси.</translation>
+        <source>Connect to the Mangacoin network through a SOCKS5 proxy.</source>
+        <translation>Свързване с Mangacoin мрежата чрез SOCKS5  прокси.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1039,7 +1039,7 @@
         <translation>Формуляр</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Monacoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Mangacoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Текущата информация на екрана може да не е актуална. Вашият портфейл ще се синхронизира автоматично с мрежата на Биткоин, щом поне една връзката с нея се установи; този процес все още не е приключил.</translation>
     </message>
     <message>
@@ -1094,8 +1094,8 @@
         <translation>Възникна грешка по време назаявката за плащане</translation>
     </message>
     <message>
-        <source>Cannot start monacoin: click-to-pay handler</source>
-        <translation>Monacoin не можe да се стартира: click-to-pay handler</translation>
+        <source>Cannot start mangacoin: click-to-pay handler</source>
+        <translation>Mangacoin не можe да се стартира: click-to-pay handler</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -1176,8 +1176,8 @@
         <translation>Сума</translation>
     </message>
     <message>
-        <source>Enter a Monacoin address (e.g. %1)</source>
-        <translation>Въведете Monacoin адрес (например: %1)</translation>
+        <source>Enter a Mangacoin address (e.g. %1)</source>
+        <translation>Въведете Mangacoin адрес (например: %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1713,8 +1713,8 @@
         <translation>Заявката за плащане е изтекла.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Monacoin address</source>
-        <translation>Внимание: Невалиден Monacoin адрес</translation>
+        <source>Warning: Invalid Mangacoin address</source>
+        <translation>Внимание: Невалиден Mangacoin адрес</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -1833,7 +1833,7 @@
         <translation>Копиране на текущия подпис</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Monacoin address</source>
+        <source>Sign the message to prove you own this Mangacoin address</source>
         <translation>Подпишете съобщение като доказателство, че притежавате определен адрес</translation>
     </message>
     <message>
@@ -1849,7 +1849,7 @@
         <translation>&amp;Провери</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Monacoin address</source>
+        <source>Verify the message to ensure it was signed with the specified Mangacoin address</source>
         <translation>Проверете съобщение, за да сте сигурни че е подписано с определен Биткоин адрес</translation>
     </message>
     <message>
@@ -2366,8 +2366,8 @@
         <translation>Въведете Ваш публичен адрес</translation>
     </message>
     <message>
-        <source>Monacoin Core</source>
-        <translation>Monacoin ядро</translation>
+        <source>Mangacoin Core</source>
+        <translation>Mangacoin ядро</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>

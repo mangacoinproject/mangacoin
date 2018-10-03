@@ -44,17 +44,17 @@ from the root of the repository.
 
 **Note**: You only need Berkeley DB if the wallet is enabled (see the section *Disable-Wallet mode* below).
 
-Build Monacoin Core
+Build Mangacoin Core
 ------------------------
 
-1. Clone the monacoin source code and cd into `monacoin`
+1. Clone the mangacoin source code and cd into `mangacoin`
 
-        git clone https://github.com/monacoinproject/monacoin
-        cd monacoin
+        git clone https://github.com/mangacoinproject/mangacoin
+        cd mangacoin
 
-2.  Build monacoin-core:
+2.  Build mangacoin-core:
 
-    Configure and build the headless monacoin binaries as well as the GUI (if Qt is found).
+    Configure and build the headless mangacoin binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
 
@@ -76,44 +76,44 @@ Build Monacoin Core
 
     or
 
-        cd ~/monacoin/src
-        cp monacoind /usr/local/bin/
-        cp monacoin-cli /usr/local/bin/
+        cd ~/mangacoin/src
+        cp mangacoind /usr/local/bin/
+        cp mangacoin-cli /usr/local/bin/
 
 Running
 -------
 
-Monacoin Core is now available at `./src/monacoind`
+Mangacoin Core is now available at `./src/mangacoind`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=monacoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Monacoin/monacoin.conf"
+    echo -e "rpcuser=mangacoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Mangacoin/mangacoin.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/Monacoin/monacoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Mangacoin/mangacoin.conf"
 
-The first time you run monacoind, it will start downloading the blockchain. This process could take several hours.
+The first time you run mangacoind, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/Monacoin/debug.log
+    tail -f $HOME/Library/Application\ Support/Mangacoin/debug.log
 
 Other commands:
 -------
 
-    ./src/monacoind -daemon # Starts the monacoin daemon.
-    ./src/monacoin-cli --help # Outputs a list of command-line options.
-    ./src/monacoin-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/mangacoind -daemon # Starts the mangacoin daemon.
+    ./src/mangacoin-cli --help # Outputs a list of command-line options.
+    ./src/mangacoin-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
-You can use Qt Creator as an IDE, for monacoin development.
+You can use Qt Creator as an IDE, for mangacoin development.
 Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
 Uncheck everything except Qt Creator during the installation process.
 
 1. Make sure you installed everything through Homebrew mentioned above
 2. Do a proper ./configure --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "monacoin-qt" as project name, enter src/qt as location
+4. Enter "mangacoin-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."

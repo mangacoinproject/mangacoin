@@ -3,7 +3,7 @@
 // Copyright (c) 2011-2018 Litecoin Developers
 // Copyright (c) 2013-2014 Dr Kimoto Chan
 // Copyright (c) 2009-2014 The DigiByte developers
-// Copyright (c) 2013-2018 Monacoin Developers
+// Copyright (c) 2013-2018 Mangacoin Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -199,7 +199,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     }
 
     // Go back by what we want to be 14 days worth of blocks
-    // Monacoin: This fixes an issue where a 51% attack can change difficulty at will.
+    // Mangacoin: This fixes an issue where a 51% attack can change difficulty at will.
     // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
     int blockstogoback = adjustmentInterval-1;
     if ((pindexLast->nHeight+1) != adjustmentInterval)
@@ -248,7 +248,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     arith_uint256 bnOld;
     bnNew.SetCompact(pindexLast->nBits);
     bnOld = bnNew;
-    // Monacoin: intermediate uint256 can overflow by 1 bit
+    // Mangacoin: intermediate uint256 can overflow by 1 bit
     const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
     bool fShift = bnNew.bits() > bnPowLimit.bits() - 1;
     if (fShift)
@@ -282,3 +282,29 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
 
     return true;
 }
+
+bool CheckProofOfWork2(uint256 hash, unsigned int nBits, int nHeights, const Consensus::Params& params)
+{
+    bool fNegative;
+    bool fOverflow;
+    arith_uint256 bnTarget;
+    // error(">>>CheckProofOfWork2 nBits:%d",nBits);//TODO: delete this
+
+    bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
+
+    // Check range
+    if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit)) {
+        // error("CheckProofOfWork2 error1 fNegative:%d bnTarget:%d fOverflow:%d powLimit:%d",fNegative,bnTarget.GetCompact(false),fOverflow,UintToArith256(params.powLimit).GetCompact(false));//todo: delete this
+        return false;
+    }
+
+    // Check proof of work matches claimed amount
+    if (nHeights > 0 && UintToArith256(hash) > bnTarget) {
+        // error("CheckProofOfWork2 error2 fNegative:%d bnTarget:%d fOverflow:%d powLimit:%d UintToArith256(hash):%d",fNegative,bnTarget.GetCompact(false),fOverflow,UintToArith256(params.powLimit).GetCompact(false), UintToArith256(hash).GetCompact(false));//todo: delete this
+        return false;
+    }
+
+    // error("CheckProofOfWork2 OK.");//TODO: delete this
+    return true;
+}
+

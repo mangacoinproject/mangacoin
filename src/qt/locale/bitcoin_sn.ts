@@ -98,8 +98,8 @@
         <translation>Vhura &amp;URI</translation>
     </message>
     <message>
-        <source>Monacoin</source>
-        <translation>Monacoin</translation>
+        <source>Mangacoin</source>
+        <translation>Mangacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -165,8 +165,8 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>Monacoin</source>
-        <translation>Monacoin</translation>
+        <source>Mangacoin</source>
+        <translation>Mangacoin</translation>
     </message>
     </context>
 <context>
@@ -194,8 +194,8 @@
         <translation>Marii </translation>
     </message>
     <message>
-        <source>Enter a Monacoin address (e.g. %1)</source>
-        <translation>Nyora kero ye Monacoin (sekuti %1)</translation>
+        <source>Enter a Mangacoin address (e.g. %1)</source>
+        <translation>Nyora kero ye Mangacoin (sekuti %1)</translation>
     </message>
     <message>
         <source>%1 d</source>

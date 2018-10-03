@@ -5,7 +5,7 @@ Before every release candidate:
 
 * Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/monacoinproject/monacoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/mangacoinproject/mangacoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -33,12 +33,12 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/monacoinproject/gitian.sigs.monacoin.git
-    git clone https://github.com/monacoinproject/monacoin-detached-sigs.git
+    git clone https://github.com/mangacoinproject/gitian.sigs.mangacoin.git
+    git clone https://github.com/mangacoinproject/mangacoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/monacoinproject/monacoin.git
+    git clone https://github.com/mangacoinproject/mangacoin.git
 
-### Monacoin maintainers/release engineers, suggestion for writing release notes
+### Mangacoin maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -61,16 +61,16 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./monacoin
+    pushd ./mangacoin
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.8.0)
     git fetch
     git checkout v${VERSION}
     popd
 
-Ensure your gitian.sigs.monacoin are up-to-date if you wish to gverify your builds against other Gitian signatures.
+Ensure your gitian.sigs.mangacoin are up-to-date if you wish to gverify your builds against other Gitian signatures.
 
-    pushd ./gitian.sigs.monacoin
+    pushd ./gitian.sigs.mangacoin
     git pull
     popd
 
@@ -95,7 +95,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../monacoin/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../mangacoin/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -103,62 +103,62 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url monacoin=/path/to/monacoin,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url mangacoin=/path/to/mangacoin,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Monacoin Core for Linux, Windows, and OS X:
+### Build and sign Mangacoin Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --num-make 2 --memory 3000 --commit monacoin=v${VERSION} ../monacoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.monacoin/ ../monacoin/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/monacoin-*.tar.gz build/out/src/monacoin-*.tar.gz ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit mangacoin=v${VERSION} ../mangacoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.mangacoin/ ../mangacoin/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/mangacoin-*.tar.gz build/out/src/mangacoin-*.tar.gz ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit monacoin=v${VERSION} ../monacoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.monacoin/ ../monacoin/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/monacoin-*-win-unsigned.tar.gz inputs/monacoin-win-unsigned.tar.gz
-    mv build/out/monacoin-*.zip build/out/monacoin-*.exe ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit mangacoin=v${VERSION} ../mangacoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.mangacoin/ ../mangacoin/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/mangacoin-*-win-unsigned.tar.gz inputs/mangacoin-win-unsigned.tar.gz
+    mv build/out/mangacoin-*.zip build/out/mangacoin-*.exe ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit monacoin=v${VERSION} ../monacoin/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.monacoin/ ../monacoin/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/monacoin-*-osx-unsigned.tar.gz inputs/monacoin-osx-unsigned.tar.gz
-    mv build/out/monacoin-*.tar.gz build/out/monacoin-*.dmg ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit mangacoin=v${VERSION} ../mangacoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.mangacoin/ ../mangacoin/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/mangacoin-*-osx-unsigned.tar.gz inputs/mangacoin-osx-unsigned.tar.gz
+    mv build/out/mangacoin-*.tar.gz build/out/mangacoin-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`monacoin-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`monacoin-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`monacoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `monacoin-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`monacoin-${VERSION}-osx-unsigned.dmg`, `monacoin-${VERSION}-osx64.tar.gz`)
-  5. Gitian signatures (in `gitian.sigs.monacoin/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
+  1. source tarball (`mangacoin-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`mangacoin-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`mangacoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `mangacoin-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`mangacoin-${VERSION}-osx-unsigned.dmg`, `mangacoin-${VERSION}-osx64.tar.gz`)
+  5. Gitian signatures (in `gitian.sigs.mangacoin/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import monacoin/contrib/gitian-keys/*.pgp
+    gpg --import mangacoin/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs.monacoin/ -r ${VERSION}-linux ../monacoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs.monacoin/ -r ${VERSION}-win-unsigned ../monacoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs.monacoin/ -r ${VERSION}-osx-unsigned ../monacoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs.mangacoin/ -r ${VERSION}-linux ../mangacoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs.mangacoin/ -r ${VERSION}-win-unsigned ../mangacoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs.mangacoin/ -r ${VERSION}-osx-unsigned ../mangacoin/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
 
-Commit your signature to gitian.sigs.monacoin:
+Commit your signature to gitian.sigs.mangacoin:
 
-    pushd gitian.sigs.monacoin
+    pushd gitian.sigs.mangacoin
     git add ${VERSION}-linux/${SIGNER}
     git add ${VERSION}-win-unsigned/${SIGNER}
     git add ${VERSION}-osx-unsigned/${SIGNER}
     git commit -a
-    git push  # Assuming you can push to the gitian.sigs.monacoin tree
+    git push  # Assuming you can push to the gitian.sigs.mangacoin tree
     popd
 
 Codesigner only: Create Windows/OS X detached signatures:
@@ -167,22 +167,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer monacoin-osx-unsigned.tar.gz to osx for signing
-    tar xf monacoin-osx-unsigned.tar.gz
+    transfer mangacoin-osx-unsigned.tar.gz to osx for signing
+    tar xf mangacoin-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf monacoin-win-unsigned.tar.gz
+    tar xf mangacoin-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/monacoin-detached-sigs
+    cd ~/mangacoin-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -195,34 +195,34 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [monacoin-detached-sigs](https://github.com/monacoinproject/monacoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [mangacoin-detached-sigs](https://github.com/mangacoinproject/mangacoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../monacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.monacoin/ ../monacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.monacoin/ -r ${VERSION}-osx-signed ../monacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/monacoin-osx-signed.dmg ../monacoin-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../mangacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.mangacoin/ ../mangacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.mangacoin/ -r ${VERSION}-osx-signed ../mangacoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/mangacoin-osx-signed.dmg ../mangacoin-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../monacoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.monacoin/ ../monacoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.monacoin/ -r ${VERSION}-win-signed ../monacoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/monacoin-*win64-setup.exe ../monacoin-${VERSION}-win64-setup.exe
-    mv build/out/monacoin-*win32-setup.exe ../monacoin-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../mangacoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.mangacoin/ ../mangacoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.mangacoin/ -r ${VERSION}-win-signed ../mangacoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/mangacoin-*win64-setup.exe ../mangacoin-${VERSION}-win64-setup.exe
+    mv build/out/mangacoin-*win32-setup.exe ../mangacoin-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
 
-    pushd gitian.sigs.monacoin
+    pushd gitian.sigs.mangacoin
     git add ${VERSION}-osx-signed/${SIGNER}
     git add ${VERSION}-win-signed/${SIGNER}
     git commit -a
-    git push  # Assuming you can push to the gitian.sigs.monacoin tree
+    git push  # Assuming you can push to the gitian.sigs.mangacoin tree
     popd
 
 ### After 3 or more people have gitian-built and their results match:
@@ -235,23 +235,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-monacoin-${VERSION}-aarch64-linux-gnu.tar.gz
-monacoin-${VERSION}-arm-linux-gnueabihf.tar.gz
-monacoin-${VERSION}-i686-pc-linux-gnu.tar.gz
-monacoin-${VERSION}-x86_64-linux-gnu.tar.gz
-monacoin-${VERSION}-osx64.tar.gz
-monacoin-${VERSION}-osx.dmg
-monacoin-${VERSION}.tar.gz
-monacoin-${VERSION}-win32-setup.exe
-monacoin-${VERSION}-win32.zip
-monacoin-${VERSION}-win64-setup.exe
-monacoin-${VERSION}-win64.zip
+mangacoin-${VERSION}-aarch64-linux-gnu.tar.gz
+mangacoin-${VERSION}-arm-linux-gnueabihf.tar.gz
+mangacoin-${VERSION}-i686-pc-linux-gnu.tar.gz
+mangacoin-${VERSION}-x86_64-linux-gnu.tar.gz
+mangacoin-${VERSION}-osx64.tar.gz
+mangacoin-${VERSION}-osx.dmg
+mangacoin-${VERSION}.tar.gz
+mangacoin-${VERSION}-win32-setup.exe
+mangacoin-${VERSION}-win32.zip
+mangacoin-${VERSION}-win64-setup.exe
+mangacoin-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the monacoin.org server, nor put them in the torrent*.
+space *do not upload these to the manga-coin.com server, nor put them in the torrent*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -261,24 +261,24 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the monacoin.org server.
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the manga-coin.com server.
 
 ```
 
-- Update monacoin.org version
+- Update manga-coin.com version
 
 - Announce the release:
 
-  - monacoin-dev and monacoin-dev mailing list
+  - mangacoin-dev and mangacoin-dev mailing list
 
-  - blog.monacoin.org blog post
+  - blog.manga-coin.com blog post
 
-  - Update title of #monacoin and #monacoin-dev on Freenode IRC
+  - Update title of #mangacoin and #mangacoin-dev on Freenode IRC
 
-  - Optionally twitter, reddit /r/Monacoin, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/Mangacoin, ... but this will usually sort out itself
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/monacoinproject/monacoin/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/mangacoinproject/mangacoin/releases/new) with a link to the archived release notes.
 
   - Celebrate

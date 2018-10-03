@@ -194,7 +194,7 @@ void Shutdown()
     /// for example if the data directory was found to be locked.
     /// Be sure that anything that writes files or flushes caches only does this if the respective
     /// module was initialized.
-    RenameThread("monacoin-shutoff");
+    RenameThread("mangacoin-shutoff");
     mempool.AddTransactionsUpdated(1);
 
     StopHTTPRPC();
@@ -539,8 +539,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/monacoinproject/monacoin>";
-    const std::string URL_WEBSITE = "<https://monacoin.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/mangacoinproject/mangacoin>";
+    const std::string URL_WEBSITE = "<https://manga-coin.com>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2013, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
@@ -644,7 +644,7 @@ void CleanupBlockRevFiles()
 void ThreadImport(std::vector<fs::path> vImportFiles)
 {
     const CChainParams& chainparams = Params();
-    RenameThread("monacoin-loadblk");
+    RenameThread("mangacoin-loadblk");
 
     {
     CImportingNow imp;
@@ -1246,9 +1246,9 @@ bool AppInitMain()
     // Warn about relative -datadir path.
     if (gArgs.IsArgSet("-datadir") && !fs::path(gArgs.GetArg("-datadir", "")).is_absolute()) {
         LogPrintf("Warning: relative datadir option '%s' specified, which will be interpreted relative to the "
-                  "current working directory '%s'. This is fragile, because if monacoin is started in the future "
+                  "current working directory '%s'. This is fragile, because if mangacoin is started in the future "
                   "from a different location, it will be unable to locate the current data files. There could "
-                  "also be data loss if monacoin is started while in a temporary directory.\n",
+                  "also be data loss if mangacoin is started while in a temporary directory.\n",
             gArgs.GetArg("-datadir", ""), fs::current_path().string());
     }
 
@@ -1602,6 +1602,21 @@ bool AppInitMain()
                         break;
                     }
                     assert(chainActive.Tip() != nullptr);
+                }
+
+                if(is_coinsview_empty){
+                    // Add Genesis's coin to CoinDB
+                    for (const CTransactionRef& tx : chainparams.GenesisBlock().vtx) {
+                        bool fCoinbase = tx->IsCoinBase();
+                        const uint256& txid = tx->GetHash();
+                        for (size_t i = 0; i < tx->vout.size(); ++i) {
+                            Coin haveCoin = pcoinsTip->AccessCoin(COutPoint(txid, i));
+                            if(haveCoin.IsSpent()){
+                                pcoinsTip->AddCoin(COutPoint(txid, i), Coin(tx->vout[i], 1, fCoinbase), false);
+                                LogPrintf("Init Add Coin: Tx=%s, N=%ld\n", txid.GetHex().c_str(), i);
+                            }
+                        }
+                    }
                 }
 
                 if (!fReset) {

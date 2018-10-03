@@ -166,8 +166,8 @@
         <translation>Změnit heslo k šifrování peněženky</translation>
     </message>
     <message>
-        <source>Monacoin</source>
-        <translation>Monacoin</translation>
+        <source>Mangacoin</source>
+        <translation>Mangacoin</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -297,8 +297,8 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>Monacoin</source>
-        <translation>Monacoin</translation>
+        <source>Mangacoin</source>
+        <translation>Mangacoin</translation>
     </message>
     </context>
 <context>

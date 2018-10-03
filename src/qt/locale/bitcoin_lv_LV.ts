@@ -39,11 +39,11 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Izvēlies adresi uz kuru sūtīt monacoins</translation>
+        <translation>Izvēlies adresi uz kuru sūtīt mangacoins</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Izvēlies adresi ar kuru saņemt monacoins</translation>
+        <translation>Izvēlies adresi ar kuru saņemt mangacoins</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -202,8 +202,8 @@
         <translation>Bloku reindeksēšana no diska...</translation>
     </message>
     <message>
-        <source>Send coins to a Monacoin address</source>
-        <translation>Nosūtīt bitkoinus uz Monacoin adresi</translation>
+        <source>Send coins to a Mangacoin address</source>
+        <translation>Nosūtīt bitkoinus uz Mangacoin adresi</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -226,8 +226,8 @@
         <translation>&amp;Pārbaudīt ziņojumu...</translation>
     </message>
     <message>
-        <source>Monacoin</source>
-        <translation>Monacoin</translation>
+        <source>Mangacoin</source>
+        <translation>Mangacoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -254,12 +254,12 @@
         <translation>Šifrēt privātās atslēgas kuras pieder tavam maciņam</translation>
     </message>
     <message>
-        <source>Sign messages with your Monacoin addresses to prove you own them</source>
-        <translation>Parakstīt ziņojumus ar savām Monacoin adresēm lai pierādītu ka tās pieder tev</translation>
+        <source>Sign messages with your Mangacoin addresses to prove you own them</source>
+        <translation>Parakstīt ziņojumus ar savām Mangacoin adresēm lai pierādītu ka tās pieder tev</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Monacoin addresses</source>
-        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām Monacoin adresēm</translation>
+        <source>Verify messages to ensure they were signed with specified Mangacoin addresses</source>
+        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām Mangacoin adresēm</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -278,12 +278,12 @@
         <translation>Ciļņu rīkjosla</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and monacoin: URIs)</source>
-        <translation>Pieprasīt maksājumus (izveido QR kodu un monacoin: URIs)</translation>
+        <source>Request payments (generates QR codes and mangacoin: URIs)</source>
+        <translation>Pieprasīt maksājumus (izveido QR kodu un mangacoin: URIs)</translation>
     </message>
     <message>
-        <source>Open a monacoin: URI or payment request</source>
-        <translation>Atvērt monacoin URI vai maksājuma pieprasījumu</translation>
+        <source>Open a mangacoin: URI or payment request</source>
+        <translation>Atvērt mangacoin URI vai maksājuma pieprasījumu</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -465,8 +465,8 @@
         <translation>Izmantot pielāgotu datu mapi:</translation>
     </message>
     <message>
-        <source>Monacoin</source>
-        <translation>Monacoin</translation>
+        <source>Mangacoin</source>
+        <translation>Mangacoin</translation>
     </message>
     <message>
         <source>Error</source>
@@ -559,15 +559,15 @@
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
-        <translation>Ieslēgt monacoin &amp;kontroles funkcijas</translation>
+        <translation>Ieslēgt mangacoin &amp;kontroles funkcijas</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
         <translation>&amp;Tērēt neapstiprinātu atlikumu</translation>
     </message>
     <message>
-        <source>Automatically open the Monacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Uz rūtera automātiski atvērt Monacoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
+        <source>Automatically open the Mangacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Uz rūtera automātiski atvērt Mangacoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -619,7 +619,7 @@
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
-        <translation>Vai rādīt Monacoin kontroles funkcijas vai nē.</translation>
+        <translation>Vai rādīt Mangacoin kontroles funkcijas vai nē.</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -657,8 +657,8 @@
         <translation>Forma</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Monacoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Monacoin tīklu, taču šis process vēl nav beidzies.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Mangacoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Mangacoin tīklu, taču šis process vēl nav beidzies.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -920,7 +920,7 @@
     </message>
     <message>
         <source>Coin Control Features</source>
-        <translation>Monacoin Kontroles Funkcijas</translation>
+        <translation>Mangacoin Kontroles Funkcijas</translation>
     </message>
     <message>
         <source>Inputs...</source>
@@ -1099,8 +1099,8 @@
         <translation>Kopēt parakstu uz sistēmas starpliktuvi</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Monacoin address</source>
-        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs Monacoin adreses īpašnieks.</translation>
+        <source>Sign the message to prove you own this Mangacoin address</source>
+        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs Mangacoin adreses īpašnieks.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1216,8 +1216,8 @@
         <translation>Darbināt fonā kā servisu un pieņemt komandas</translation>
     </message>
     <message>
-        <source>Monacoin Core</source>
-        <translation>Monacoin Core</translation>
+        <source>Mangacoin Core</source>
+        <translation>Mangacoin Core</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>
