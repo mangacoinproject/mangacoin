@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>These are your Mangacoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>これらは支払いを受け取るためのモナコインアドレスです。トランザクションごとに新しい受け取り用アドレスを作成することが推奨されます。</translation>
+        <translation>これらは支払いを受け取るためのマンガコインアドレスです。トランザクションごとに新しい受け取り用アドレスを作成することが推奨されます。</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -185,7 +185,7 @@
     </message>
     <message>
         <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your mangacoins from being stolen by malware infecting your computer.</source>
-        <translation>暗号化処理を完了させるため %1 をいますぐ終了します。ウォレットの暗号化では、コンピュータに感染したマルウェアなどによるモナコインの盗難から完全に守ることはできないことにご注意ください。</translation>
+        <translation>暗号化処理を完了させるため %1 をいますぐ終了します。ウォレットの暗号化では、コンピュータに感染したマルウェアなどによるマンガコインの盗難から完全に守ることはできないことにご注意ください。</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -932,11 +932,11 @@
     </message>
     <message>
         <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the mangacoin network, as detailed below.</source>
-        <translation>確認できない最近のトランザクションがあるかもしれません。これによりウォレットの残高は不正確なものである可能性があります。この情報はウォレットが一度モナコインネットワークへの同期が完了すると正確なものとなります。詳細は下記を参照してください。</translation>
+        <translation>確認できない最近のトランザクションがあるかもしれません。これによりウォレットの残高は不正確なものである可能性があります。この情報はウォレットが一度マンガコインネットワークへの同期が完了すると正確なものとなります。詳細は下記を参照してください。</translation>
     </message>
     <message>
         <source>Attempting to spend mangacoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>まだ表示されていないトランザクションが影響するモナコインを使用しようとすると、ネットワークから認証がなされないでしょう。</translation>
+        <translation>まだ表示されていないトランザクションが影響するマンガコインを使用しようとすると、ネットワークから認証がなされないでしょう。</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -2354,7 +2354,7 @@
     </message>
     <message>
         <source>The fee will be deducted from the amount being sent. The recipient will receive less mangacoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>送金する金額から手数料が差し引かれます。受取人は数量フィールドで指定した量よりも少ないモナコインを受け取ります。受取人が複数いる場合には、手数料は均等割されます。</translation>
+        <translation>送金する金額から手数料が差し引かれます。受取人は数量フィールドで指定した量よりも少ないマンガコインを受け取ります。受取人が複数いる場合には、手数料は均等割されます。</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2427,7 +2427,7 @@
     </message>
     <message>
         <source>You can sign messages/agreements with your addresses to prove you can receive mangacoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>あなたの所有しているアドレスによりメッセージや合意書に署名をすることで、それらアドレスに対して送られたモナコインを受け取ることができることを証明できます。フィッシング攻撃により不正にあなたの識別情報を署名させられてしまうことを防ぐために、不明確なものやランダムなものに対して署名しないよう注意してください。合意することが可能な、よく詳細の記された文言にのみ署名するようにしてください。</translation>
+        <translation>あなたの所有しているアドレスによりメッセージや合意書に署名をすることで、それらアドレスに対して送られたマンガコインを受け取ることができることを証明できます。フィッシング攻撃により不正にあなたの識別情報を署名させられてしまうことを防ぐために、不明確なものやランダムなものに対して署名しないよう注意してください。合意することが可能な、よく詳細の記された文言にのみ署名するようにしてください。</translation>
     </message>
     <message>
         <source>The Mangacoin address to sign the message with</source>
