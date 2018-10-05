@@ -147,10 +147,10 @@ UniValue getrawtransaction(const JSONRPCRequest& request)
     uint256 hash = ParseHashV(request.params[0], "parameter 1");
     CBlockIndex* blockindex = nullptr;
 
-    if (hash == Params().GenesisBlock().hashMerkleRoot) {
-        // Special exception for the genesis block coinbase transaction
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "The genesis block coinbase is not considered an ordinary transaction and cannot be retrieved");
-    }
+    //if (hash == Params().GenesisBlock().hashMerkleRoot) {
+    //    // Special exception for the genesis block coinbase transaction
+    //    throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "The genesis block coinbase is not considered an ordinary transaction and cannot be retrieved");
+    //}
 
     // Accept either a bool (true) or a num (>=1) to indicate verbose output.
     bool fVerbose = false;
@@ -170,7 +170,13 @@ UniValue getrawtransaction(const JSONRPCRequest& request)
 
     CTransactionRef tx;
     uint256 hash_block;
-    if (!GetTransaction(hash, tx, Params().GetConsensus(), hash_block, true, blockindex)) {
+
+    CBlock genesisBlock = Params().GenesisBlock();
+    CTransactionRef gtx = genesisBlock.vtx[0];
+    if( gtx->GetHash() == hash ){
+        hash_block = genesisBlock.GetHash();
+        tx = gtx;
+    }else if (!GetTransaction(hash, tx, Params().GetConsensus(), hash_block, true, blockindex)) {
         std::string errmsg;
         if (blockindex) {
             if (!(blockindex->nStatus & BLOCK_HAVE_DATA)) {

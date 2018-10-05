@@ -3,6 +3,7 @@
 // Copyright (c) 2011-2018 Litecoin Developers
 // Copyright (c) 2013-2014 Dr Kimoto Chan
 // Copyright (c) 2009-2014 The DigiByte developers
+// Copyright (c) 2013-2018 The Monacoin Core developers
 // Copyright (c) 2013-2018 Mangacoin Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
