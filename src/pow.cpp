@@ -147,7 +147,7 @@ unsigned int static GetNextWorkRequired_V2(const CBlockIndex* pindexLast, const 
     if (params.fPowNoRetargeting)
         return pindexLast->nBits;
 
-	return KimotoGravityWell(pindexLast, pblock, BlocksTargetSpacing, PastBlocksMin, PastBlocksMax, params);
+    return KimotoGravityWell(pindexLast, pblock, BlocksTargetSpacing, PastBlocksMin, PastBlocksMax, params);
 }
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
