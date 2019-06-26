@@ -59,6 +59,8 @@ struct Params {
     int BIP65Height;
     /** Block height at which BIP66 becomes active */
     int BIP66Height;
+    /** Block height at which MangaCoin first HF becomes active */
+    int MangaCoinHFHeight;
     /**
      * Minimum blocks including miner confirmation of the total of 2016 blocks in a retargeting period,
      * (nPowTargetTimespan / nPowTargetSpacing) which is also used for BIP9 deployments.
@@ -80,6 +82,8 @@ struct Params {
     uint256 defaultAssumeValid;
     
     CAmount nSubsidyAmount;
+    /** SubsidyAmount after MangaCoin first HF */
+    CAmount nSubsidyAmountAfterHF;
     int nSubsidyBlankHeight;
 };
 } // namespace Consensus

@@ -14,6 +14,8 @@
 #include <coins.h>
 #include <utilmoneystr.h>
 
+#include <numeric>
+
 bool IsFinalTx(const CTransaction &tx, int nBlockHeight, int64_t nBlockTime)
 {
     if (tx.nLockTime == 0)
@@ -156,7 +158,7 @@ int64_t GetTransactionSigOpCost(const CTransaction& tx, const CCoinsViewCache& i
     return nSigOps;
 }
 
-bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fCheckDuplicateInputs)
+bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fCheckDuplicateInputs, bool fCheckSpam)
 {
     // Basic checks that don't depend on any context
     if (tx.vin.empty())
@@ -169,8 +171,18 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
 
     // Check for negative or overflow output values
     CAmount nValueOut = 0;
+    int tx_count = 0;
+    std::vector<CScript> out_addresses;
+    std::vector<CAmount> out_amounts;
     for (const auto& txout : tx.vout)
     {
+        if (fCheckSpam) {
+            auto it = std::find(out_addresses.begin(), out_addresses.end(), txout.scriptPubKey);
+            if (it != out_addresses.end()) {
+              return state.DoS(100, false, REJECT_INVALID, "bad-txns-vout-duplicate");
+            }
+        }
+        out_addresses.push_back(txout.scriptPubKey);
         if (txout.nValue < 0)
             return state.DoS(100, false, REJECT_INVALID, "bad-txns-vout-negative");
         if (txout.nValue > MAX_MONEY)
@@ -178,6 +190,20 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
         nValueOut += txout.nValue;
         if (!MoneyRange(nValueOut))
             return state.DoS(100, false, REJECT_INVALID, "bad-txns-txouttotal-toolarge");
+        out_amounts.push_back(txout.nValue);
+        tx_count++;
+    }
+
+    if (fCheckSpam) {
+      if (tx_count>=5) {
+        //sort
+        std::sort(out_amounts.begin(), out_amounts.end());
+        //average excluding max tx
+        CAmount average = std::accumulate(out_amounts.begin(), out_amounts.end()-1, (CAmount)0) / (tx_count-1);
+        if (average <= (0.1 * COIN)) {
+          return state.DoS(100, false, REJECT_INVALID, "bad-txns-vout-toosmall");
+        }
+      }
     }
 
     // Check for duplicate inputs - note that this check is slow so we skip it in CheckBlock
