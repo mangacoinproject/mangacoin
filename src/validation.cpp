@@ -563,7 +563,7 @@ static bool AcceptToMemoryPoolWorker(const CChainParams& chainparams, CTxMemPool
         *pfMissingInputs = false;
     }
 
-    if (!CheckTransaction(tx, state))
+    if (!CheckTransaction(tx, state, true, true))
         return false; // state filled in by CheckTransaction
 
     // Coinbase is only valid in a block, not as a loose transaction
@@ -1158,7 +1158,12 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
         return 0;
     }
 
-    CAmount nSubsidy = consensusParams.nSubsidyAmount;
+    CAmount nSubsidy;
+    if (nHeight < consensusParams.MangaCoinHFHeight) {
+         nSubsidy = consensusParams.nSubsidyAmount;
+    } else {
+         nSubsidy = consensusParams.nSubsidyAmountAfterHF;
+    }
     // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
     nSubsidy >>= halvings;
     // error("GetBlockSubsidy:%d",nSubsidy);
