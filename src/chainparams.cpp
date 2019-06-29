@@ -85,7 +85,7 @@ public:
         consensus.BIP34Hash = uint256S("e0b0b95cc209e17dd4280e3ab830256783d89ef714accce540232da33e2b320a");
         consensus.BIP65Height = -1;
         consensus.BIP66Height = -1;
-        consensus.MangaCoinHFHeight = 309200;
+        consensus.MangaCoinHFHeight = 316000;
         consensus.powLimit = uint256S("000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 30 * 60; //  30 minutes
         consensus.nPowTargetSpacing = 1.5 * 60; // 1.5 minutes
@@ -181,6 +181,7 @@ public:
                 {160000, uint256S("0x84ff30f759a32673eb32b0c8882b8357419ec021ae33285b78af1bd5e7577f36")},
                 {200000, uint256S("0x2d381f2e59f7144cf67a470aef175997e43637bb377294c56255d5f8a97932ab")},
                 {240000, uint256S("0xa51a0f3ed70d25d16644346845f937dc763ace2c08637bc57c196b6d2a89c16b")},
+                {280000, uint256S("0x93478b0bca153355585f63c718ca466453d889f9929eb707128ac5e38c4281d9")},                
             }};
 
         chainTxData = ChainTxData{
